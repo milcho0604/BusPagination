@@ -15,7 +15,7 @@ import net.skhu.model.Pagination;
 public interface BusMapper {
 
     @Select("""
-        SELECT b.*, c.categoryName categoryName
+        SELECT b.*, c.categoryName
         FROM bus b LEFT JOIN category c ON b.categoryId = c.id
         LIMIT #{firstRecordIndex}, #{sz} """)
     List<Bus> findAll(Pagination pagination);
@@ -27,19 +27,18 @@ public interface BusMapper {
     Bus findOne(int id);
 
     @Insert("""
-        INSERT Bus (busNo, firstStop, lastStop, categoryId, firstBus, lastBus, categoryName)
-        VALUES (#{busNo}, #{firstStop}, #{lastStop}, #{categoryId}, #{firstBus}, #{lastBus}, #{categoryName}) """)
+        INSERT Bus (busNo, firstStop, lastStop, categoryId, firstBus, lastBus)
+        VALUES (#{busNo}, #{firstStop}, #{lastStop}, #{categoryId}, #{firstBus}, #{lastBus}) """)
     void insert(Bus bus);
 
     @Update("""
         UPDATE bus SET
           busNo = #{busNo},
-          firstBus = #{firstBus},
-          lastBus = #{lastBus},
+          firstStop = #{firstStop},
+          lastStop = #{lastStop},
           categoryId = #{categoryId},
-          firstBus = #{firstBus}
+          firstBus = #{firstBus},
           lastBus = #{lastBus}
-          categoryName = #{categoryName}
         WHERE id = #{id} """)
     void update(Bus bus);
 

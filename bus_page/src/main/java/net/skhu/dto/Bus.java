@@ -10,7 +10,7 @@ public class Bus {
 
     @NotEmpty
     @NotBlank
-    @Size(min=3, max=6)
+    @Size(min=2, max=6)
     String busNo;
 
     @NotEmpty

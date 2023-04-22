@@ -68,11 +68,6 @@ div.buttons {
 					<td><form:errors path="lastStop" class="red" /></td>
 				</tr>
 				<tr>
-					<td>학과 번호:</td>
-					<td><form:input path="categoryId" /></td>
-					<td><form:errors path="categoryId" class="red" /></td>
-				</tr>
-				<tr>
 					<td>첫차:</td>
 					<td><form:input path="firstBus" /></td>
 					<td><form:errors path="firstBus" class="red" /></td>
